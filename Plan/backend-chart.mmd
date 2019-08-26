@@ -1,0 +1,10 @@
+graph TD;
+    Developmnet(Developmnet);
+    WebPage(Web Page)--> Nginx(Nginx);
+    Nginx(Nginx)-->ReactServer(React Server);
+    Nginx(Nginx)-->ExpressServer(Express Server);
+    ReactServer(React Server)-->ExpressServer(Express Server);
+    ExpressServer(ExpressServer)-->Redis(Redis);
+    ExpressServer(ExpressServer)-->Postgres(Postgres);
+    Redis(Redis)-->Worker(Worker);
+    Worker(Worker)-->Redis(Redis);
