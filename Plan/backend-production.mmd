@@ -1,0 +1,17 @@
+graph LR;
+    Production(Production);
+    WebPage(Web Page)--> Nginx(Nginx);
+    subgraph Elastic Beanstalk;
+    Nginx(Nginx)-->ReactServer(Nginx w/Prod files);
+    Nginx(Nginx)-->ExpressServer(Express Server);
+    ReactServer(Nginx w/Prod files)-->ExpressServer(Express Server);
+    Worker(Worker)
+    end;
+    subgraph AWS Elastic Cache;
+    ExpressServer(ExpressServer)-->Redis(Redis);
+    Redis(Redis)-->Worker(Worker);
+    Worker(Worker)-->Redis(Redis);
+    end;
+    subgraph AWS Relational DB Service;
+    ExpressServer(ExpressServer)-->Postgres(Postgres);
+    end;
