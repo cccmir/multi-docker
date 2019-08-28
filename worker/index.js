@@ -14,9 +14,9 @@ function fib(index) {
     if (index < 2) return 1;
     return fib(index - 1) + fib(index - 2);
 }
-
+console.error("Started");
 sub.on('message', (channel, message) => {
-    console.log("Got message from redis with value: " + message);
+    console.error("Got message from redis with value: " + message);
     redisClient.hset('values', message, fib(parseInt(message)));
 });
 
