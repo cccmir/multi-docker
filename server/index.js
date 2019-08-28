@@ -9,6 +9,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+console.error("Starting up with pguser: " + keys.pgUser + " pass:" + keys.pgPassword)
 // POSTGRESS CLIENT SETUP
 const { Pool } = require('pg');
 const pgClient = new Pool({
